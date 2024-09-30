@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divas Mandal - Portfolio</title>
+    <style>
+        /* Reset and Basic Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            background: #0a74da;
+            color: #fff;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            padding: 5px 10px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background: #fff;
+            color: #0a74da;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('cover_01.png') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 116, 218, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            text-align: center;
+            color: #fff;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .hero-content a {
+            background: #fff;
+            color: #0a74da;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .hero-content a:hover {
+            background: #0a74da;
+            color: #fff;
+        }
+
+        /* About Section */
+        #about {
+            padding: 60px 0;
+            background: #f4f4f4;
+        }
+
+        #about h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            color: #0a74da;
+        }
+
+        #about .content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #about .content img {
+            width: 45%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        #about .content div {
+            width: 50%;
+        }
+
+        /* Skills Section */
+        #skills {
+            padding: 60px 0;
+        }
+
+        #skills h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            color: #0a74da;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .skill-box {
+            background: #f4f4f4;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            flex: 1 1 300px;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .skill-box h3 {
+            margin-bottom: 10px;
+            color: #0a74da;
+        }
+
+        /* Experience Section */
+        #experience {
+            padding: 60px 0;
+            background: #f4f4f4;
+        }
+
+        #experience h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            color: #0a74da;
+        }
+
+        .experience-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .experience-item {
+            background: #fff;
+            padding: 20px;
+            margin: 10px 0;
+            width: 80%;
+            border-left: 5px solid #0a74da;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-item h3 {
+            margin-bottom: 10px;
+            color: #0a74da;
+        }
+
+        /* Projects Section */
+        #projects {
+            padding: 60px 0;
+        }
+
+        #projects h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            color: #0a74da;
+        }
+
+        .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .project-box {
+            background: #f4f4f4;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            flex: 1 1 300px;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .project-box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .project-box h3 {
+            margin-bottom: 10px;
+            color: #0a74da;
+        }
+
+        /* Education Section */
+        #education {
+            padding: 60px 0;
+            background: #f4f4f4;
+        }
+
+        #education h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            color: #0a74da;
+        }
+
+        .education-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .education-item {
+            background: #fff;
+            padding: 20px;
+            margin: 10px 0;
+            width: 80%;
+            border-left: 5px solid #0a74da;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .education-item h3 {
+            margin-bottom: 10px;
+            color: #0a74da;
+        }
+
+        /* Certifications Section */
+        #certifications {
+            padding: 60px 0;
+        }
+
+        #certifications h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            color: #0a74da;
+        }
+
+        .certifications-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .certification-box {
+            background: #f4f4f4;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            flex: 1 1 300px;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .certification-box h3 {
+            margin-bottom: 10px;
+            color: #0a74da;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 60px 0;
+            background: #f4f4f4;
+        }
+
+        #contact h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            color: #0a74da;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-form {
+            background: #fff;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            background: #0a74da;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #084d9e;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            color: #0a74da;
+            font-size: 1.5em;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #084d9e;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a74da;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            #about .content {
+                flex-direction: column;
+            }
+
+            #about .content img,
+            #about .content div {
+                width: 100%;
+            }
+
+            nav ul {
+                flex-direction: column;
+                background: #0a74da;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 200px;
+                display: none;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+                cursor: pointer;
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Divas Mandal</div>
+                <div class="menu-toggle">&#9776;</div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Driven by Curiosity, Perfected by Practice</p>
+            <a href="#contact">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="content">
+                <img src="Profile_pic_01.png" alt="Divas Mandal">
+                <div>
+                    <p>Dedicated software developer skilled in Flutter, Python, and web technologies, eager to leverage my skills in building dynamic applications while contributing to team success.
+                    </p>
+                    <p>Hello, I’m Divas Mandal, a recent Computer Science and Engineering graduate from Govind Ballabh Pant Institute of Engineering and Technology, Pauri. I have experience in web and mobile app development, including projects like an e-commerce app and a personal finance tracker built with Flutter and Firebase. I’ve also interned as a Web Developer, where I worked on creating responsive web pages. My key skills include Flutter, Dart, C++, Python, and web technologies like HTML, CSS, and JavaScript. I’m passionate about problem-solving and eager to contribute to innovative projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-box">
+                    <h3>Programming Languages</h3>
+                    <p>C++, Python, HTML, CSS, JavaScript, Dart, Flutter</p>
+                </div>
+                <div class="skill-box">
+                    <h3>Tools</h3>
+                    <p>Visual Studio Code,Android Studio, Adobe Photoshop, Microsoft Office</p>
+                </div>
+                <div class="skill-box">
+                    <h3>Interpersonal Skills</h3>
+                    <p>Leadership, Teamwork, Management, Coordination, Decision Making, Problem Solving</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="experience-container">
+                <div class="experience-item">
+                    <h3>Machine Learning Intern</h3>
+                    <h4>Pantech ProEd Pvt Ltd.</h4>
+                    <span>June 2023 – July 2023</span>
+                    <ul>
+                        <li>Data Preprocessing: Cleaning and preparing raw data for analysis.</li>
+                        <li>Analyzing and visualizing datasets to gain insights into underlying patterns, trends, and
+                            relationships.</li>
+                        <li>Building and training machine learning models using various algorithms and techniques.</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Web Development Intern</h3>
+                    <h4>The Spark Foundation</h4>
+                    <span>May 2023 – June 2023</span>
+                    <ul>
+                        <li>Assisted in the development of responsive and user-friendly web pages.</li>
+                        <li>Implemented basic front-end features and maintained clean, organized code.</li>
+                        <li>Enhanced problem-solving techniques in a structured development environment.</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Business Development Intern</h3>
+                    <h4>devTown</h4>
+                    <span>March 2021 – October 2021</span>
+                    <ul>
+                        <li>Identified new opportunities and understood current market trends.</li>
+                        <li>Assisted in developing growth strategies.</li>
+                        <li>Participated in planning, sales, and marketing processes.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-container">
+                <div class="project-box">
+                    <img src="project_image_01.png" alt="Flood Detection Project">
+                    <h3>Flood Detection Using Deep Learning</h3>
+                    <p>A system that analyzes post-flood geospatial data of Nalbari district, Assam, to identify flooded
+                        areas and produce flood maps using U-Net architecture for image segmentation.</p>
+                </div>
+                <div class="project-box">
+                    <img src="project_image_02.png" alt="Breast Cancer Classification">
+                    <h3>Breast Cancer Classification</h3>
+                    <p>Implemented a CNN-based deep learning model to classify breast cancer images as malignant,
+                        benign, or normal, detecting subtle abnormalities indicative of cancerous growth.</p>
+                </div>
+                <div class="project-box">
+                    <img src="project_image_03.png" alt="Portfolio Website">
+                    <h3>Portfolio Website</h3>
+                    <p>A simple, beautiful, and interactive portfolio website created using HTML, CSS, and JavaScript,
+                        showcasing profile links, resume, project details, certifications, and more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-container">
+                <div class="education-item">
+                    <h3>Bachelor of Technology in Computer Science and Engineering</h3>
+                    <h4>Govind Ballabh Pant Institute of Engineering and Technology, Pauri</h4>
+                    <span>August 2021 – June 2024</span>
+                    <p>Percentage: 65%</p>
+                </div>
+                <div class="education-item">
+                    <h3>Diploma in Electrical Engineering</h3>
+                    <h4>Rudrapur Institute of Technology</h4>
+                    <span>August 2016 – June 2018</span>
+                    <p>UBTER: 75.35%</p>
+                </div>
+                <div class="education-item">
+                    <h3>Class XII</h3>
+                    <h4>Janta Inter College, Rudrapur</h4>
+                    <span>April 2015 – March 2016</span>
+                    <p>Uttarakhand State Board</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <h2>Certifications</h2>
+            <div class="certifications-container">
+                <div class="certification-box">
+                    <h3>100 Days of Code</h3>
+                    <p>The Complete Python Pro Bootcamp</p>
+                    <p>Udemy</p>
+                </div>
+            </div>
+        </div>
+    </section>  
+    
+    <!-- Contact Section -->
+     <section id = "contact">
+        <div class="container">
+            <div class=" contact-container">
+                <div class="contact-form">
+                    <form action="submit_form.php" method="post">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+     </section>
+
+    <!-- Footer Section -->
+     <footer>
+        <a href="Divas Mandal CV.pdf" class="btn" download>Download Resume</a>
+        <a href="https://www.linkedin.com/in/imdivasmandal/" class="btn">LinkedIn Profile</a>
+        <a href="https://github.com/imdivasmandal" class="btn">github Profile</a>
+        <p>&copy; 2024 Divas Mandal | <a href="#home">Back to top</a></p>
+    </footer>
